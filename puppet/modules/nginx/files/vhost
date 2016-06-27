@@ -1,0 +1,36 @@
+server {
+  listen 80;
+
+  server_name _;
+
+  root /vagrant/web;
+
+  client_max_body_size 20m;
+
+  error_log /var/log/nginx/site.error.log;
+  access_log /var/log/nginx/site.access.log;
+
+  #strip app.php/ prefix if it is present
+  rewrite ^/app\.php/?(.*)$ /$1 permanent;
+
+  location / {
+    index app.php;
+    try_files $uri @rewriteapp;
+  }
+
+
+  location @rewriteapp {
+    rewrite ^(.*)$ /app.php/$1 last;
+  }
+
+  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  location ~ ^/(app|app_dev)\.php(/|$) {
+    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_buffer_size 256k;
+    fastcgi_buffers 16 256k;
+    fastcgi_busy_buffers_size 256k;
+    fastcgi_split_path_info ^(.+\.php)(/.*)$;
+    include fastcgi_params;
+    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+  }
+}

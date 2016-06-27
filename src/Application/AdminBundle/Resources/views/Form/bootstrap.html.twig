@@ -1,0 +1,2 @@
+{# only extend the BraincraftedBootstrapBundle template when not in admin site #}
+{% extends '_sonata_admin' in app.request.attributes|keys ? 'form_div_layout.html.twig':'BraincraftedBootstrapBundle:Form:bootstrap.html.twig' %}

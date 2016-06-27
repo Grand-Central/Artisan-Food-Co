@@ -1,0 +1,17 @@
+parameters:
+    #email config
+    mailer_transport: smtp
+    mailer_host: smtp.sendgrid.net
+    mailer_port: 587
+    mailer_user: apikey
+    mailer_password: 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
+    locale: en
+    secret: managemycontentrealgood
+    database_driver: pdo_pgsql
+    database_host: localhost
+    database_port: 5432
+    database_name: cms_bootstrap_data
+    database_user: cms_bootstrap_user
+    database_password: strapmybootslikethatpuss3827
+
+

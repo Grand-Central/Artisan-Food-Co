@@ -1,0 +1,30 @@
+{
+  "author": "Colin MacDonald <colin@grandc.co.uk>",
+  "name": "cms_bootstrap",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Grand-Central/CMS-Bootstrap.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^1.9.1",
+    "bootstrap": "^3.3.6",
+    "bootstrap-colorpicker": "^2.3.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-uglify": "^1.5.4",
+    "del": "^2.2.1"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

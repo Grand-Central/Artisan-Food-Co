@@ -1,0 +1,339 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    assets:
+        version: 0.0.1
+        version_format: '%%s?v=%%s'
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:
+         name: cms-session
+         handler_id: snc_redis.session.handler
+         cookie_secure: false
+         cookie_httponly: true
+    fragments:       ~
+    http_method_override: true
+
+# SncRedis Configuration
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: session
+            dsn: redis://localhost
+    session:
+        client: session
+        prefix: cms-session
+        ttl: 3600
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    globals: ~
+    #sonata
+    form:
+        resources:
+            - 'SonataFormatterBundle:Form:formatter.html.twig'
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+        mappings:
+            ApplicationSonataMediaBundle: ~
+            ApplicationSonataClassificationBundle: ~
+            ApplicationSonataUserBundle: ~
+            SonataUserBundle: ~
+            FOSUserBundle: ~
+            SonataMediaBundle: ~
+            SonataClassificationBundle: ~
+        # entity_managers:
+        #     default:
+        #         mappings:
+        #             SonataClassificationBundle: ~
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    # port:      %mailer_port%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+# Services
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    sonata.admin.orm.filter.type.string:
+        class: Application\AdminBundle\Filter\CaseInsensitiveStringFilter
+        tags:
+           - { name: sonata.admin.filter.type, alias: doctrine_orm_string }
+
+# FosUser Configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+    service:
+        user_manager: sonata.user.orm.user_manager
+
+sonata_user:
+    security_acl: false
+    manager_type: orm # can be orm or mongodb
+
+sonata_admin:
+    title:      "CMS"
+    title_logo: /bundles/applicationadmin/img/logo-grand-central.png
+    templates:
+        # default global templates
+        layout: SonataAdminBundle::admin_layout.html.twig
+        search: SonataAdminBundle:Core:search.html.twig
+        search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
+    security:
+        handler: sonata.admin.security.handler.role
+    assets:
+        stylesheets:
+            # Defaults
+            - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
+            - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
+            - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css
+            - bundles/sonataadmin/vendor/iCheck/skins/square/blue.css
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+            - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
+            - bundles/sonatacore/vendor/select2/select2.css
+            - bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
+            - bundles/sonataadmin/css/styles.css
+            - bundles/sonataadmin/css/layout.css
+            - bundles/sonataadmin/css/tree.css
+            # Custom
+            - dist/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css
+            - bundles/applicationadmin/css/admin.css
+        javascripts:
+            # Defaults:
+            - bundles/sonatacore/vendor/jquery/dist/jquery.min.js
+            - bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js
+            - bundles/sonatacore/vendor/moment/min/moment.min.js
+            - bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js
+            - bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js
+            - bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js
+            - bundles/sonataadmin/vendor/jquery-form/jquery.form.js
+            - bundles/sonataadmin/jquery/jquery.confirmExit.js
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js
+            - bundles/sonatacore/vendor/select2/select2.min.js
+            - bundles/sonataadmin/vendor/admin-lte/dist/js/app.min.js
+            - bundles/sonataadmin/vendor/iCheck/icheck.min.js
+            - bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js
+            - bundles/sonataadmin/vendor/waypoints/lib/jquery.waypoints.min.js
+            - bundles/sonataadmin/vendor/waypoints/lib/shortcuts/sticky.min.js
+            - bundles/sonataadmin/Admin.js
+            - bundles/sonataadmin/treeview.js
+            # Custom
+            - dist/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js
+            - js/min/admin.min.js
+
+
+# SonataAdmin Configuration
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # SonataUser blocks
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text: # used to if you plan to use Sonata user routes
+        # Sonta Search blocks
+        sonata.admin.block.search_result:
+            contexts: [admin]
+        # Your other blocks
+
+
+# SonataFormatter Configuration
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
+
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+
+# SonadaMedia Configuration
+sonata_media:
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    providers:
+        image:
+            resizer: sonata.media.resizer.square
+            allowed_extensions: ['jpg', 'png', 'gif', 'jpeg']
+            allowed_mime_types: ['image/pjpeg','image/jpeg','image/png','image/x-png', 'image/gif']
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                medium: { width: 200, height: 300, quality: 95 }
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+
+# IvoryCKEditorBundle
+ivory_ck_editor:
+    default_config: default
+    configs:
+        default:
+            skin: "flat,/ckeditor/skins/flat/"
+            toolbar: default
+            allowedContent: >
+                h1 h2 h3 h4 h5 p blockquote strong em ul ol li dl dt dd hr;
+                iframe[!src,allowfullscreen,frameborder,width,height];
+                a[href, name, target, data-toggle, data-target];
+                img{float,margin,margin-top,margin-right,margin-bottom,margin-left}[!src,alt,width,height,class];
+                table[width,class](table,table-bordered);thead tbody tfoot tr th td caption;
+                span[style]{color};
+            stylesSet:
+                - { name: 'Table', element: 'table', attributes: { class: 'table table-bordered' }}
+            format_tags: 'p;h1;h2;h3;h4;h5;pre'
+            removeDialogTabs: 'image:advanced;link:advanced'
+            contentsCss: ['/css/screen.css', '/css/ckeditor-content-override.css']
+            forcePasteAsPlainText: true
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            # Display images by default when clicking the image dialog browse button
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: default # Optional, to upload in a custom context
+    toolbars:
+        configs:
+            default:     [ "@clipboard", "@spelling", "@links", "@tools", "@insert", "@document",  "/", "@basicstyles", "@paragraph", "@styles" ]
+        items:
+            clipboard:   [ "Cut", "Copy", "Paste", "-", "Undo", "Redo" ]
+            spelling:    [ "Scayt" ]
+            links:       [ "Link", "Unlink", "Anchor" ]
+            tools:       [ "Maximize" ]
+            insert:      [ "Image", "Table", "HorizontalRule", "SpecialChar" ]
+            document:    [ "Source" ]
+            basicstyles: [ "Bold", "Italic", "Underline", "Strike", "Subscript", "Superscript", "-", "RemoveFormat" ]
+            paragraph:   [ "NumberedList", "BulletedList", "-", "Outdent", "Indent", "-", "Blockquote" ]
+            styles:      [ "Styles", "Format" ]
+
+# MobileDetectBundle
+mobile_detect:
+    redirect:
+        mobile: ~
+        tablet: ~
+    switch_device_view: ~

@@ -1,0 +1,21 @@
+# htpasswd
+.htpasswd
+
+# Mac mess
+*/.DS_Store/*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+
+# Gulp / NPM related
+web/js/min/*
+web/dist/*
+node_modules/*
+
+# Vagrant
+.vagrant
+ubuntu-xenial-16.04-cloudimg-console.log
