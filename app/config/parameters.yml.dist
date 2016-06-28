@@ -1,5 +1,6 @@
 parameters:
-    #email config
+    project_version: 0.0.1
+    project_name: CMS Bootstrap
     mailer_transport: smtp
     mailer_host: smtp.sendgrid.net
     mailer_port: 587
@@ -13,4 +14,3 @@ parameters:
     database_name: cms_bootstrap_data
     database_user: cms_bootstrap_user
     database_password: strapmybootslikethatpuss3827
-    project_name: CMS Bootstrap

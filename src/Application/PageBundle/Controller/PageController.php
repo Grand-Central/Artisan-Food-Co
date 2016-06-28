@@ -9,15 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class PageController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="homepage")
      * @Template()
      */
     public function homepageAction()
     {
+        //SEO related
         $seoPage = $this->container->get('sonata.seo.page');
-
         $pageTitle = 'Homepage | ' . $this->getParameter('project_name');
-
         $seoPage
             ->setTitle($pageTitle)
             ->addMeta('property', 'og:title', $pageTitle)

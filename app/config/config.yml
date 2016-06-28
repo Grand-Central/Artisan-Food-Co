@@ -4,7 +4,7 @@ imports:
 
 framework:
     assets:
-        version: 0.0.1
+        version: %project_version%
         version_format: '%%s?v=%%s'
     #esi:             ~
     translator:      { fallback: %locale% }
