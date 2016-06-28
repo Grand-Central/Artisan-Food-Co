@@ -301,8 +301,6 @@ sonata_seo:
                 "X-Ua-Compatible": "IE=edge"
             name:
                 viewport: "width=device-width, initial-scale=1"
-                keywords: ""
-                description: ""
                 robots: "index, follow"
             property:
                 # Facebook application settings
@@ -311,7 +309,6 @@ sonata_seo:
                 # Open Graph information
                 # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
                 "og:site_name":       %project_name%
-                "og:description":     ""
         head:
             "lang": "en"
 
