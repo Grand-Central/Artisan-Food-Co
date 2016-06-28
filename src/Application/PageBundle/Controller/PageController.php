@@ -24,8 +24,6 @@ class PageController extends Controller
             ->setPageMeta()
         ;
 
-        // dump('hi');
-
         return array();
     }
 }
