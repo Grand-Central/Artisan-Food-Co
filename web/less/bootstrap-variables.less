@@ -1,2 +1,21 @@
+//
+// Override the Bootstrap defaults
+// -------------------------------
+
 //** Load fonts from this directory.
 @icon-font-path:          "/dist/bootstrap/fonts/";
+
+
+
+//
+// Bootstrap Utilities specific
+// -------------------------------
+@brand-light:           #ccc;
+@brand-dark:            #333;
+
+@font-size-lg:            ceil(@font-size-base * 1.23); // ~20px
+@font-size-md:            ceil(@font-size-base * 1.14); // ~16px
+@font-size-sm:            ceil(@font-size-base * 0.92); // ~13px
+@font-size-xs:            ceil(@font-size-base * 0.85); // ~12px
+
+@border-color:            darken(@brand-light, 5%);
