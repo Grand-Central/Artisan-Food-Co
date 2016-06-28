@@ -5,9 +5,12 @@ A Symfony project with Sonata Admin to use as a base for new projects allowing y
 
 ## Things that will help you with using this project:
 
-* [SonataAdminBundle documentation](http://sonata-project.org/bundles/admin/master/doc/index.html)
-* [SonataMediaBundle documentation](http://sonata-project.org/bundles/media/master/doc/index.html)
+* [SonataAdminBundle](http://sonata-project.org/bundles/admin/master/doc/index.html) powers the CMS / Admin site.
+* [SonataUserBundle](https://sonata-project.org/bundles/user/master/doc/index.html) for user management (extends [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle)).
+* [SonataMediaBundle](http://sonata-project.org/bundles/media/master/doc/index.html) for image, video, file management.
+* [SonataSeoBundle](https://sonata-project.org/bundles/seo/2-x/doc/index.html) for title and meta tag management.
 * [The admin theme used](https://almsaeedstudio.com/themes/AdminLTE/index2.html)
+* [Autoprefixer](https://github.com/postcss/autoprefixer) is used to add / remove vendor prefixes from compiled css.
 
 
 ## Getting Started

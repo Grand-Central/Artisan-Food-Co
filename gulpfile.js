@@ -5,6 +5,7 @@ var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var autoprefixer = require('gulp-autoprefixer');
 var notify = require("gulp-notify");
 var del = require('del');
 
@@ -62,6 +63,10 @@ gulp.task('less', function(){
     .pipe(less())
     .pipe(cleanCss())
     .pipe(concat('screen.css'))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
     .pipe(gulp.dest('web/css'))
     .pipe(livereload());
 });
@@ -78,6 +83,10 @@ gulp.task('admin-less', function(){
     .pipe(less())
     .pipe(cleanCss())
     .pipe(concat('admin.css'))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
     .pipe(gulp.dest('src/Application/AdminBundle/Resources/public/css'))
     .pipe(livereload());
 });
