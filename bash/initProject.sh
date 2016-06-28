@@ -19,18 +19,21 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 sed -i '' -- "s/cms-bootstrap/$projectNameSlug/g" "$DIR/../Vagrantfile"
 
 #rename config entries
-sed -i '' -- "s/cms-session/$projectNameSlug-session/g" "$DIR/../app/config/config.yml"
+configPath="$DIR/../app/config/config.yml"
+sed -i '' -- "s/cms-session/$projectNameSlug-session/g" $configPath
 
 #rename parameter entries
 paramerersPath="$DIR/../app/config/parameters.yml"
 sed -i '' -- "s/cms_bootstrap_data/$databaseName/g" $paramerersPath
 sed -i '' -- "s/cms_bootstrap_user/$databaseUser/g" $paramerersPath
 sed -i '' -- "s/strapmybootslikethatpuss3827/$databasePassword/g" $paramerersPath
+sed -i '' -- "s/CMS Bootstrap/$projectName/g" $paramerersPath
 
 paramerersDistPath="$DIR/../app/config/parameters.yml.dist"
 sed -i '' -- "s/cms_bootstrap_data/$databaseName/g" $paramerersDistPath
 sed -i '' -- "s/cms_bootstrap_user/$databaseUser/g" $paramerersDistPath
 sed -i '' -- "s/strapmybootslikethatpuss3827/$databasePassword/g" $paramerersDistPath
+sed -i '' -- "s/CMS Bootstrap/$projectName/g" $paramerersDistPath
 
 #rename createDatabase bash entries
 sed -i '' -- "s/cms_bootstrap_data/$databaseName/g" "$DIR/createDatabase.sh"

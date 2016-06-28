@@ -13,5 +13,4 @@ parameters:
     database_name: cms_bootstrap_data
     database_user: cms_bootstrap_user
     database_password: strapmybootslikethatpuss3827
-
-
+    project_name: CMS Bootstrap

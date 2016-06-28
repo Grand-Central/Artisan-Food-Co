@@ -14,6 +14,17 @@ class PageController extends Controller
      */
     public function homepageAction()
     {
+        $seoPage = $this->container->get('sonata.seo.page');
+
+        $pageTitle = 'Homepage | ' . $this->getParameter('project_name');
+
+        $seoPage
+            ->setTitle($pageTitle)
+            ->addMeta('property', 'og:title', $pageTitle)
+            ->addMeta('name', 'keywords', 'homepage, content management, project')
+            ->addMeta('name', 'description', 'The homepage of our CMS project.')
+        ;
+
         return array();
     }
 }

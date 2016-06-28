@@ -43,7 +43,8 @@ snc_redis:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-    globals: ~
+    globals:
+        project_name: %project_name%
     #sonata
     form:
         resources:
@@ -255,7 +256,7 @@ sonata_formatter:
             service: sonata.formatter.text.twigengine
             extensions: [] # Twig formatter cannot have extensions
 
-# SonadaMedia Configuration
+# SonataMedia Configuration
 sonata_media:
     # if you don't use default namespace configuration
     #class:
@@ -285,6 +286,36 @@ sonata_media:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     false
+
+# SonataSeo Configuration
+sonata_seo:
+    encoding:         UTF-8
+    page:
+        default: sonata.seo.page.default
+        title: %project_name%
+        default: sonata.seo.page.default
+        metas:
+            charset:
+                UTF-8: ""
+            http-equiv:
+                "X-Ua-Compatible": "IE=edge"
+            name:
+                viewport: "width=device-width, initial-scale=1"
+                keywords: ""
+                description: ""
+                robots: "index, follow"
+            property:
+                # Facebook application settings
+                #'fb:app_id':          XXXXXX
+                #'fb:admins':          admin1, admin2
+                # Open Graph information
+                # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
+                "og:site_name":       %project_name%
+                "og:description":     ""
+        head:
+            "lang": "en"
+
+
 
 # IvoryCKEditorBundle
 ivory_ck_editor:

@@ -41,6 +41,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
 
             //other useful bundles
             new SunCat\MobileDetectBundle\MobileDetectBundle(),
