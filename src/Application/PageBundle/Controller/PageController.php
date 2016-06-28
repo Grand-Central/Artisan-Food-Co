@@ -14,16 +14,23 @@ class PageController extends Controller
      */
     public function homepageAction()
     {
-        //SEO related
-        $seoPage = $this->container->get('sonata.seo.page');
+        //SEO & Layout config
+        $htmlClass = 'homepage';
+        $navSelected = 'Home';
         $pageTitle = 'Homepage | ' . $this->getParameter('project_name');
-        $seoPage
+        $pageDescription = 'The homepage of our CMS project.';
+
+        $this->container->get('sonata.seo.page')
+            ->addHtmlAttributes('class', $htmlClass)
             ->setTitle($pageTitle)
             ->addMeta('property', 'og:title', $pageTitle)
             ->addMeta('name', 'keywords', 'homepage, content management, project')
-            ->addMeta('name', 'description', 'The homepage of our CMS project.')
+            ->addMeta('name', 'description', $pageDescription)
+            ->addMeta('property', 'og:description', $pageDescription)
         ;
 
-        return array();
+        return array(
+            'navSelected' => $navSelected
+        );
     }
 }
