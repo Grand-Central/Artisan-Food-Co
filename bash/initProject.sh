@@ -10,7 +10,7 @@ read -r -p "Please enter a database username, E.g. cms_bootstrap: " databaseUser
 read -r -p "Please enter a database password: " databasePassword
 
 #format project name
-projectNameSlug=$(echo "$projectName" | iconv -t ascii//rTRANSLIT | sed -E s/[^a-zA-Z0-9]+/-/g | sed -E s/^-+\|-+$//g | tr A-Z a-z)
+projectNameSlug=$(echo "$projectName" | sed -E s/[^a-zA-Z0-9]+/-/g | sed -E s/^-+\|-+$//g | tr A-Z a-z)
 
 #get the current dir
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
