@@ -26,8 +26,8 @@ sonata_user_admin_security:
 #     resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
 #     prefix: /admin/resetting
 
-cms_page:
-    resource: "@ApplicationPageBundle/Controller/"
+grand_central_page:
+    resource: "@GrandCentralPageBundle/Controller/"
     type:     annotation
     prefix:   /
 

@@ -1,4 +1,4 @@
 services:
     application.page.meta:
-        class: Application\PageBundle\Utils\PageMeta
+        class: GrandCentral\PageBundle\Utils\PageMeta
         arguments: ['@sonata.seo.page', '@twig']

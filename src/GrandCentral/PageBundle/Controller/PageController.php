@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\PageBundle\Controller;
+namespace GrandCentral\PageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

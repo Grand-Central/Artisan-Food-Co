@@ -1,5 +1,5 @@
 <?php
-namespace Application\PageBundle\Utils;
+namespace GrandCentral\PageBundle\Utils;
 
 use Sonata\SeoBundle\Seo\SeoPage as SeoPage;
 use Twig_Environment as Environment;
