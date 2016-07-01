@@ -140,25 +140,6 @@ file { 'php-ini-cli':
     source => 'puppet:///modules/php/php-cli.ini'
 }
 
-# dotfiles
-file { 'bash-git':
-    path => '/home/ubuntu/.bash_git',
-    ensure => file,
-    mode => 644,
-    source => 'puppet:///modules/dotfiles/.bash_git',
-}
-
-file { 'bashrc':
-    path => '/home/ubuntu/.bashrc',
-    ensure => file,
-    mode => 644,
-    require => [
-        File['bash-git'],
-        Package['vim'],
-    ],
-    source => 'puppet:///modules/dotfiles/.bashrc',
-}
-
 # vhosts
 file { 'nginx-vhost':
     path => '/etc/nginx/sites-available/vhost',
