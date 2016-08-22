@@ -52,6 +52,7 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider :virtualbox do |vb|
+    vb.name = "cms-bootstrap"
     # This allows symlinks to be created within the /vagrant root directory,
     # which is something librarian-puppet needs to be able to do. This might
     # be enabled by default depending on what version of VirtualBox is used.
