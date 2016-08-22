@@ -141,6 +141,12 @@ fos_user:
     service:
         user_manager: sonata.user.orm.user_manager
 
+sonata_intl:
+    timezone:
+        default: Europe/London
+        locales:
+            en: Europe/London
+
 sonata_user:
     security_acl: false
     manager_type: orm # can be orm or mongodb
