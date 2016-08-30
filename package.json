@@ -8,9 +8,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "jquery": "^1.9.1",
-    "bootstrap": "^3.3.6",
-    "bootstrap-colorpicker": "^2.3.3"
+    "jquery": "1.9.1",
+    "bootstrap": "3.3.6",
+    "bootstrap-colorpicker": "2.3.3"
   },
   "devDependencies": {
     "del": "^2.2.1",
