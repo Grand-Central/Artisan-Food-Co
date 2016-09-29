@@ -84,7 +84,7 @@ gulp.task('admin-less', function(){
     .pipe(cleanCss())
     .pipe(concat('admin.css'))
     .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
+        browsers: ['last 4 versions'],
         cascade: false
     }))
     .pipe(gulp.dest('src/Application/AdminBundle/Resources/public/css'))
