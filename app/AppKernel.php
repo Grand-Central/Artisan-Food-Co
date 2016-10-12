@@ -48,6 +48,7 @@ class AppKernel extends Kernel
 
             //project specific bundles
             new GrandCentral\PageBundle\GrandCentralPageBundle(),
+            new Application\ContactFormBundle\ApplicationContactFormBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

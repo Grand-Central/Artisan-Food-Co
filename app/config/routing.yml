@@ -26,6 +26,11 @@ sonata_user_admin_security:
 #     resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
 #     prefix: /admin/resetting
 
+application_contact_form:
+    resource: "@ApplicationContactFormBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 grand_central_page:
     resource: "@GrandCentralPageBundle/Controller/"
     type:     annotation

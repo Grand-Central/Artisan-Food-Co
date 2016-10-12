@@ -373,3 +373,10 @@ mobile_detect:
         mobile: ~
         tablet: ~
     switch_device_view: ~
+
+
+# ApplicationContactFormBundle
+application_contact_form:
+    email_to: colin@grandc.co.uk
+    email_from: colin@grandc.co.uk
+    email_subject: "New query from Artisan Food Co. Website"

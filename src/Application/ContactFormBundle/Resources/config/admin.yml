@@ -1,0 +1,6 @@
+services:
+    application_contact_form.admin.contact:
+        class: Application\ContactFormBundle\Admin\ContactAdmin
+        arguments: [~, Application\ContactFormBundle\Entity\Contact, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contact Form', label: 'Contact Form Submissions'}

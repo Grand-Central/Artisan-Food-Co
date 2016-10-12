@@ -18,6 +18,7 @@
         {% include 'header.html.twig' %}
         {% block body %}{% endblock %}
         <script src="{{ asset('/js/min/javascript.min.js') }}"></script>
+        <script src="{{ asset('bundles/applicationcontactform/js/contact-form.js') }}"></script>
         {% block javascript %}{% endblock %}
         {% if app.environment == 'prod' %}
             {# Google Analytics etc here #}
