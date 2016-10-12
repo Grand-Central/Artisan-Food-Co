@@ -16,10 +16,10 @@ Vagrant.configure("2") do |config|
 
   # vagrant-dns config. See https://github.com/BerlinVagrant/vagrant-dns
   machine = "#{ENV['COMPUTERNAME'] || `hostname -s`[0..-2]}".downcase
-  config.dns.tld = "cms-bootstrap.dev"
-  config.dns.tlds = ["cms-bootstrap.dev", "cms-bootstrap.#{machine}"]
-  config.vm.hostname = "cms-bootstrap.#{machine}.mylocaldomain.local"
-  config.dns.patterns = [/^.*cms-bootstrap.dev$/, "^.*cms-bootstrap.#{machine}$"]
+  config.dns.tld = "artisan-food-co.dev"
+  config.dns.tlds = ["artisan-food-co.dev", "artisan-food-co.#{machine}"]
+  config.vm.hostname = "artisan-food-co.#{machine}.mylocaldomain.local"
+  config.dns.patterns = [/^.*artisan-food-co.dev$/, "^.*artisan-food-co.#{machine}$"]
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider :virtualbox do |vb|
-    vb.name = "cms-bootstrap"
+    vb.name = "artisan-food-co"
     # This allows symlinks to be created within the /vagrant root directory,
     # which is something librarian-puppet needs to be able to do. This might
     # be enabled by default depending on what version of VirtualBox is used.

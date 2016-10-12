@@ -21,7 +21,7 @@ include composer
 # PostgreSQL
 #
 
-$postgres_password = 'strapmybootslikethatpuss3827'
+$postgres_password = 'alltheducksareswimminginthewater'
 $postgres_ubuntu_password = 'grandc45'
 
 class { 'postgresql::globals':
@@ -43,8 +43,8 @@ postgresql::server::role { 'ubuntu':
     superuser       => true
 }
 
-postgresql::server::role { 'cms_bootstrap_user':
-    password_hash   => postgresql_password('cms_bootstrap_user', $postgres_password)
+postgresql::server::role { 'artisan_food_co':
+    password_hash   => postgresql_password('artisan_food_co', $postgres_password)
 }
 
 

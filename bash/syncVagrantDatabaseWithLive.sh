@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #config
-databaseName=cms_bootstrap_data
-role=cms_bootstrap_user
-rolePassword=strapmybootslikethatpuss3827
+databaseName=artisan_food_co
+role=artisan_food_co
+rolePassword=alltheducksareswimminginthewater
 connectTo=grandcentral@gc-web1.grandcentralcreative.com
 remoteDir=/var/lib/postgresql/backup/data/$databaseName.*
 

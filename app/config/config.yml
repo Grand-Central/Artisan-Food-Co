@@ -20,7 +20,7 @@ framework:
     default_locale:  "%locale%"
     trusted_proxies: ~
     session:
-         name: cms-session
+         name: artisan-food-co-session
          handler_id: snc_redis.session.handler
          cookie_secure: false
          cookie_httponly: true
@@ -36,7 +36,7 @@ snc_redis:
             dsn: redis://localhost
     session:
         client: session
-        prefix: cms-session
+        prefix: artisan-food-co-session
         ttl: 3600
 
 # Twig Configuration

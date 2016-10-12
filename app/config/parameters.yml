@@ -1,7 +1,7 @@
 # This file is auto-generated during the composer install
 parameters:
     project_version: 0.0.1
-    project_name: CMS Bootstrap
+    project_name: 'Artisan Food Co.'
     mailer_transport: smtp
     mailer_host: smtp.sendgrid.net
     mailer_port: 587
@@ -12,6 +12,6 @@ parameters:
     database_driver: pdo_pgsql
     database_host: localhost
     database_port: 5432
-    database_name: cms_bootstrap_data
-    database_user: cms_bootstrap_user
-    database_password: strapmybootslikethatpuss3827
+    database_name: artisan_food_co
+    database_user: artisan_food_co
+    database_password: alltheducksareswimminginthewater
