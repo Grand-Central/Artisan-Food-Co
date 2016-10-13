@@ -60,7 +60,7 @@ class Contact
 
 
     public function __toString(){
-        return (string) $this->firstName . ' ' . $this->lastName;
+        return (string) $this->name;
     }
 
 

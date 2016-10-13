@@ -3,7 +3,7 @@ $(function() {
 
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
-        var $contactForm = $(this);
+        var $contactForm = $('#application_contact_form');
 
         // prevent double submission
         if ($contactForm.data('submitted') === true) {
@@ -33,18 +33,13 @@ $(function() {
             data: $contactForm.serialize(),
             cache: false,
             beforeSend: function(){
-                if(!$btn.data('spinning')){
-                    $btn.css('background-image', 'none');
-                    $btn.append('<i class="fa fa-circle-o-notch fa-spin fa-1x fa-fw margin-bottom"></i>');
-                    $btn.data('spinning', true);
-                }
+                $btn.val('Sending...').attr('disabled', 'disabled');
             },
             success: function(data){
-                $('.fa-spinner').remove();
                 container.replaceWith(data);
             },
             error: function(xhr, status, error){
-                $('.fa-spinner').remove();
+                $btn.val('Submit').removeAttr('disabled');
                 container.replaceWith(xhr.responseText);
             }
         });
