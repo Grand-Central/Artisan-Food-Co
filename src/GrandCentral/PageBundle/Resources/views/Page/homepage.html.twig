@@ -3,7 +3,7 @@
 
 {% block body %}
     <div class="container-fluid">
-        <header>
+        <header class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <img src="{{ asset('/img/logo-artisan-food-co.png') }}" srcset="{{ asset('/img/logo-artisan-food-co.png') }} 1x, {{ asset('/img/logo-artisan-food-co-2x.png') }} 2x" alt="The Artisan Food Company Logo">
             </div>
@@ -18,8 +18,11 @@
         </section>
 
         <section class="row duck">
-            <div class="col-sm-3 col-sm-offset-2">
-                <img src="{{ asset('/img/duck-fritons.png') }}" srcset="{{ asset('/img/duck-fritons.png') }} 1x, {{ asset('/img/duck-fritons-2x.png') }} 2x" alt="Duck Fritons Packet" class="img-responsive-center pack">
+            <div class="col-sm-3 col-sm-offset-2 text-center">
+                <div class="pack">
+                    <img src="{{ asset('/img/duck-fritons.png') }}" srcset="{{ asset('/img/duck-fritons.png') }} 1x, {{ asset('/img/duck-fritons-2x.png') }} 2x" alt="Duck Fritons Packet" class="img-responsive-center">
+                    <h5><strong>Made for a</strong> a Craft IPA</h5>
+                </div>
             </div>
             <div class="col-sm-5">
                 <h2>What we are about</h2>
@@ -35,8 +38,11 @@
         </section>
 
         <section class="row chorizo">
-            <div class="col-sm-3 col-sm-offset-2">
-                <img src="{{ asset('/img/chorizo-thins.png') }}" srcset="{{ asset('/img/chorizo-thins.png') }} 1x, {{ asset('/img/chorizo-thins-2x.png') }} 2x" alt="Duck Fritons Packet" class="img-responsive-center pack">
+            <div class="col-sm-3 col-sm-offset-2 text-center">
+                <div class="pack">
+                    <img src="{{ asset('/img/chorizo-thins.png') }}" srcset="{{ asset('/img/chorizo-thins.png') }} 1x, {{ asset('/img/chorizo-thins-2x.png') }} 2x" alt="Duck Fritons Packet" class="img-responsive-center">
+                    <h5><strong>Made for a</strong> a glass of Rioja</h5>
+                </div>
             </div>
             <div class="col-sm-2">
                 <h2>Please get in touch</h2>
@@ -55,16 +61,13 @@
                 {{ render(controller('ApplicationContactFormBundle:ContactForm:form')) }}
             </div>
         </section>
-
-        <footer>
-            <section class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <div class="tab">
-                        <p>Copyright<br>
-                        &copy; {{ 'now'|date('Y') }} {{ project_name }}</p>
-                    </div>
-                </div>
-            </section>
-        </footer>
     </div>
+    <footer>
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="tab">
+                <p>Copyright<br>
+                &copy; {{ 'now'|date('Y') }} {{ project_name }}</p>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
