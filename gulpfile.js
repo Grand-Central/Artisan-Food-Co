@@ -64,7 +64,7 @@ gulp.task('less', function(){
     .pipe(cleanCss())
     .pipe(concat('screen.css'))
     .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
+        browsers: ['last 4 versions'],
         cascade: false
     }))
     .pipe(gulp.dest('web/css'))
