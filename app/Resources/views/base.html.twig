@@ -5,6 +5,7 @@
         <meta property="og:url" content="{{app.request.uri}}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{ sonata_seo_title() }}
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link href="{{ asset('/css/screen.css') }}" rel="stylesheet" media="screen">
         {% block stylesheets %}{% endblock %}
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -15,7 +16,6 @@
         <![endif]-->
     </head>
     <body>
-        {% include 'header.html.twig' %}
         {% block body %}{% endblock %}
         <script src="{{ asset('/js/min/javascript.min.js') }}"></script>
         <script src="{{ asset('bundles/applicationcontactform/js/contact-form.js') }}"></script>
