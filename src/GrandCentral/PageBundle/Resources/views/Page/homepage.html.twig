@@ -3,14 +3,23 @@
 
 {% block body %}
     <div class="container">
-        <div class="starter-template">
-            <h1>Artisan Food Company</h1>
-            <p class="lead">Welcome to the Artisan Food Company website.</p>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+        <header>
+            <div class="col-sm-8 col-sm-offset-2">
+                <img src="{{ asset('/img/logo-artisan-food-co.png') }}" alt="The Artisan Food Company Logo">
+            </div>
+        </header>
+
+        <secion class="row">
+            <div class="col-sm-5 col-sm-offset-5">
+                <h2>Who we are</h2>
+                <p>We are a small start up based in Twyford, Berkshire making premium, artisan pub snacks for top end pubs, bars and hotels.</p>
+            </div>
+        </secion>
+
+        <secion class="row">
+            <div class="col-sm-8 col-sm-offset-2">
                 {{ render(controller('ApplicationContactFormBundle:ContactForm:form')) }}
             </div>
-        </div>
+        </secion>
     </div>
 {% endblock %}
