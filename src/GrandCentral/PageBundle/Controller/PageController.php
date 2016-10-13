@@ -18,9 +18,9 @@ class PageController extends Controller
         $this->get('application.page.meta')
             ->setHtmlClass('homepage')
             ->setNavSelected('Home')
-            ->setPageTitle('Homepage | ' . $this->getParameter('project_name'))
-            ->setMetaDescription('The homepage of our CMS project.')
-            ->setMetaKeywords('homepage, cms, project')
+            ->setPageTitle($this->getParameter('project_name') . ' | Duck Fritons & Chorizo Thins')
+            ->setMetaDescription('We are a small start up based in Twyford, Berkshire making premium, artisan pub snacks for top end pubs, bars and hotels.')
+            ->setMetaKeywords($this->getParameter('project_name') . ', Duck Fritons, Chorizo Thins, Twyford, pub snacks')
             ->setPageMeta()
         ;
 
