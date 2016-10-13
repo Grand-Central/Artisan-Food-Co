@@ -55,5 +55,16 @@
                 {{ render(controller('ApplicationContactFormBundle:ContactForm:form')) }}
             </div>
         </section>
+
+        <footer>
+            <section class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="tab">
+                        <p>Copyright<br>
+                        &copy; {{ 'now'|date('Y') }} {{ project_name }}</p>
+                    </div>
+                </div>
+            </section>
+        </footer>
     </div>
 {% endblock %}

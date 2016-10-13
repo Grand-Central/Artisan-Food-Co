@@ -1,7 +1,7 @@
 # This file is auto-generated during the composer install
 parameters:
     project_version: 0.0.1
-    project_name: 'Artisan Food Co.'
+    project_name: 'The Artisan Food Co.'
     mailer_transport: smtp
     mailer_host: smtp.sendgrid.net
     mailer_port: 587

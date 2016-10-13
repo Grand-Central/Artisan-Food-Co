@@ -49,15 +49,17 @@ section.duck,
 section.chorizo {
     color: #fff;
     background: #2b441d url(/img/duck-bg.png) 49% 39% no-repeat;
-    padding-bottom: 76px;
     .pack {
         transform: translate3d(24px, -76px ,0);
     }
 }
 
-section.chorizo {
-    background: #4b1811 url(/img/chorizo-bg.png) 42% 73% no-repeat;
+section.duck {
+    padding-bottom: 46px;
+}
 
+section.chorizo {
+    background: @brand-secondary url(/img/chorizo-bg.png) 42% 100% no-repeat;
 }
 
 //== Contact form
@@ -88,5 +90,25 @@ section.chorizo {
     }
     :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
       color:    fade(@brand-primary, 25);
+    }
+}
+
+//== Footer
+footer {
+    section {
+        position: relative;
+        background: @brand-secondary;
+        min-height: 105px;
+        .col-sm-8 {
+            min-height: 105px;
+        }
+    }
+    .tab {
+        position: absolute;
+        bottom: 0;
+        width: 222px;
+        height: 88px;
+        padding: 30px 0 0 24px;
+        background: url(/img/footer-tab.png) no-repeat;
     }
 }
