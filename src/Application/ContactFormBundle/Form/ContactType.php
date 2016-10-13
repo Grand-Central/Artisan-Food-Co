@@ -18,7 +18,6 @@ class ContactType extends AbstractType
             ->add('name', null, array('attr' => array('placeholder' => 'First name, last name')))
             ->add('email', null, array('attr' => array('placeholder' => 'name@provider.com')))
             ->add('message', null, array('label' => 'Comments', 'attr' => array('placeholder' => 'I\'d love to know your thoughts')))
-            ->add('save', 'submit', array('label' => 'Submit'))
         ;
     }
 

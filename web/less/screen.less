@@ -31,6 +31,13 @@ h2 {
 }
 
 
+//== Buttons
+.btn {
+    padding: 10px 34px;
+    margin-top: 12px;
+}
+
+
 //== Who we are
 section.who {
     padding-bottom: 24px;
@@ -58,5 +65,28 @@ section.chorizo {
     margin-top: 46px;
     .form-group {
         margin-bottom: 6px;
+    }
+    input, textarea {
+        font-size: 16px;
+    }
+    textarea {
+        min-height: 200px;
+    }
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color:    fade(@brand-primary, 25);
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color:    fade(@brand-primary, 25);
+       opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color:    fade(@brand-primary, 25);
+       opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color:    fade(@brand-primary, 25);
+    }
+    :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+      color:    fade(@brand-primary, 25);
     }
 }
