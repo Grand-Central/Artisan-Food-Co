@@ -377,6 +377,6 @@ mobile_detect:
 
 # ApplicationContactFormBundle
 application_contact_form:
-    email_to: colin@grandc.co.uk
-    email_from: colin@grandc.co.uk
+    email_to: dan@madefordrink.com
+    email_from: dan@madefordrink.com
     email_subject: "New query from Artisan Food Co. Website"
