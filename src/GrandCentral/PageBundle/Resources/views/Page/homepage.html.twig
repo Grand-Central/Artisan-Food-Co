@@ -2,24 +2,57 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container-fluid">
         <header>
             <div class="col-sm-8 col-sm-offset-2">
                 <img src="{{ asset('/img/logo-artisan-food-co.png') }}" alt="The Artisan Food Company Logo">
             </div>
         </header>
 
-        <secion class="row">
+        <section class="row who">
             <div class="col-sm-5 col-sm-offset-5">
                 <h2>Who we are</h2>
-                <p>We are a small start up based in Twyford, Berkshire making premium, artisan pub snacks for top end pubs, bars and hotels.</p>
+                <p>We are a small start up based in Twyford, Berkshire making premium,
+                    artisan pub snacks for top end pubs, bars and hotels.</p>
             </div>
-        </secion>
+        </section>
 
-        <secion class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+        <section class="row duck">
+            <div class="col-sm-3 col-sm-offset-2">
+                <img src="{{ asset('/img/duck-fritons.png') }}" srcset="{{ asset('/img/duck-fritons.png') }} 1x, {{ asset('/img/duck-fritons-2x.png') }} 2x" alt="Duck Fritons Packet" class="img-responsive-center pack">
+            </div>
+            <div class="col-sm-5">
+                <h2>What we are about</h2>
+                <p>We want to make the snacks in our pubs, bars and hotels as interesting,
+                    tempting and as delicious as the premium, craft drinks now on offer behind the bar.</p>
+                <p>We seek ideas and inspiration from different countries &amp; cultures
+                    around the world (Fritons de Canard from Gascony in France) or simply
+                    cook up some inspiration over a couple of beers (Chorizo Thins, sliced
+                    and cooked until crisp).</p>
+                <p>Wherever they are from we promise that they’ll always be delicious, made
+                    from the very best ingredients and make your drink that little bit more special. </p>
+            </div>
+        </section>
+
+        <section class="row chorizo">
+            <div class="col-sm-3 col-sm-offset-2">
+                <img src="{{ asset('/img/chorizo-thins.png') }}" srcset="{{ asset('/img/chorizo-thins.png') }} 1x, {{ asset('/img/chorizo-thins-2x.png') }} 2x" alt="Duck Fritons Packet" class="img-responsive-center pack">
+            </div>
+            <div class="col-sm-2">
+                <h2>Please get in touch</h2>
+                <p>I'd love to know your thoughts.</p>
+                <p>Do you like them? Would you buy them? Would you stock them?
+                    Should I quit my job and make a go of it?</p>
+                <p>Let me know.</p>
+                <p>Thanks,</p>
+                <p>Dan Featherstone</p>
+                <p><a href="mailto: dan@MadeForDrink.com">dan@MadeForDrink.com</a></p>
+                <p>+44 (0)7787 759 518</p>
+                <p><a href="https://twitter.com/intent/tweet?button_hashtag=MadeForDrink" target="_blank">#MadeForDrink</a></p>
+            </div>
+            <div class="col-sm-3">
                 {{ render(controller('ApplicationContactFormBundle:ContactForm:form')) }}
             </div>
-        </secion>
+        </section>
     </div>
 {% endblock %}

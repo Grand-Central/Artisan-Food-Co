@@ -6,6 +6,15 @@
 @icon-font-path:          "/dist/bootstrap/fonts/";
 
 
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+@gray-dark: #333;
+@brand-primary: #4b1811;
+
+//** Global textual link color.
+@link-color: #f9c357;
+
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
@@ -17,9 +26,29 @@
 
 @headings-font-family:    antonioregular;
 @headings-font-weight:    500;
-@headings-line-height:    1.1;
+@headings-line-height:    0.9;
 @headings-color:          inherit;
 
+@font-size-h2:            floor((@font-size-base * 1.45)); // ~30px
+
+
+//== Forms
+//
+//##
+@input-border-radius: 0;
+@input-border-focus: @brand-primary;
+@input-height-base: 46px;
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+// @screen-lg:                  1440px;
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+// Large screen / wide desktop
+@container-large-desktop:      (1440px + @grid-gutter-width);
 
 //
 // Bootstrap Utilities specific
@@ -31,5 +60,6 @@
 @font-size-md:            ceil(@font-size-base * 1.14); // ~16px
 @font-size-sm:            ceil(@font-size-base * 0.92); // ~13px
 @font-size-xs:            ceil(@font-size-base * 0.85); // ~12px
+
 
 @border-color:            darken(@brand-light, 5%);

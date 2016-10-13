@@ -26,18 +26,10 @@ class Contact
     /**
      * @var string
      *
-     * @Assert\NotBlank(message="Please enter your first name.")
-     * @ORM\Column(name="first_name", type="string", length=255)
-     */
-    private $firstName;
-
-    /**
-     * @var string
-     *
      * @Assert\NotBlank(message="Please enter your last name.")
-     * @ORM\Column(name="last_name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $lastName;
+    private $name;
 
     /**
      * @var string
@@ -82,50 +74,15 @@ class Contact
         return $this->id;
     }
 
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     * @return Contact
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     * @return Contact
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
     }
 
     /**

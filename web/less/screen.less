@@ -11,11 +11,52 @@
 
 
 //== Typography
+
 @font-face {
     font-family: 'antonioregular';
     src: url('/fonts/antonio-regular-webfont.woff2') format('woff2'),
          url('/fonts/antonio-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+//== Who we are
+section.who {
+    padding-bottom: 24px;
+}
+
+
+//== Duck Fritons & Chorizo Thins
+section.duck,
+section.chorizo {
+    color: #fff;
+    background: #2b441d url(/img/duck-bg.png) 49% 39% no-repeat;
+    padding-bottom: 76px;
+    .pack {
+        transform: translate3d(24px, -76px ,0);
+    }
+}
+
+section.chorizo {
+    background: #4b1811 url(/img/chorizo-bg.png) 42% 73% no-repeat;
+
+}
+
+//== Contact form
+#application_contact_form_container {
+    margin-top: 46px;
+    .form-group {
+        margin-bottom: 6px;
+    }
 }

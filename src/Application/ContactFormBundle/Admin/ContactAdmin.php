@@ -44,8 +44,7 @@ class ContactAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('firstName')
-            ->add('lastName')
+            ->add('name')
             ->add('email')
             ->add('message')
             // ->add('created', 'doctrine_orm_date_range', array('label' => 'Submitted Between'), '', array(
@@ -63,8 +62,7 @@ class ContactAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('firstName')
-            ->add('lastName')
+            ->add('name')
             ->add('email')
             ->add('message')
             ->add('created', null, array('label' => 'Submitted'))
@@ -82,8 +80,7 @@ class ContactAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('firstName')
-            ->add('lastName')
+            ->add('name')
             ->add('email')
             ->add('message')
             ->add('created', null, array('label' => 'Submitted'))
